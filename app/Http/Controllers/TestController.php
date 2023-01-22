@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use App\Models\User;
+
 class TestController extends Controller
 {
     public function accessor()
@@ -14,5 +17,17 @@ class TestController extends Controller
         $fullName =$user->last_name;
          
         dd($fullName);
+    }
+
+    public function helper()
+    {
+        $array = Arr::add(['name' => 'Desk'], 'price', 100);
+        $array = Arr::add(['name' => 'Desk', 'price' => null], 'price', 100);
+
+        $array = Arr::collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+ 
+        // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        dd($array);
+         
     }
 }
