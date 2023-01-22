@@ -12,7 +12,7 @@ class TestController extends Controller
 
         $user = User::find(1);
  
-        $fullName =$user->first_name;
+        $fullName =$user->last_name;
 
          
         dd($fullName);

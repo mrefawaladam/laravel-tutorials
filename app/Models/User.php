@@ -23,7 +23,6 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'middle_name',
-
         'email',
         'password',
     ];
@@ -77,4 +76,10 @@ class User extends Authenticatable
             get: fn ($value) => ucfirst($value),
         );
     }
+ 
+    public function getLastNameAttribute($value)
+    {
+        return 'Mr.' . $value;
+    }
+
 }
