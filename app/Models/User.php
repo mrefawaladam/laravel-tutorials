@@ -46,40 +46,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
- 
     /**
-     * Get the user's full name.
-     *
-     *@var array<string, string>
+     * Buat Fungsi mutator untuk membuat besar semua 
+     * 
      */
-    public function getFullNameAttribute() {
-        $name = $this->first_name;
- 
-        if (!empty($this->middle_name)) {
-            $name .= ' '. $this->middle_name;
-        }
- 
-        if (!empty($this->last_name)) {
-            $name .= ' '. $this->last_name;
-        }
-        return $name;
+    public function setFirstNameAttribute($value) {
+        $this->attributes['first_name'] = strtoupper($value);
     }
-
-    /**
-     * Get the user's first name.
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
-     */
-    protected function firstName(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => ucfirst($value),
-        );
-    }
- 
-    public function getLastNameAttribute($value)
-    {
-        return 'Mr.' . $value;
-    }
+  
 
 }
