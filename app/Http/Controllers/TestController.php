@@ -26,8 +26,14 @@ class TestController extends Controller
 
         $array = Arr::collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
  
-        // [1, 2, 3, 4, 5, 6, 7, 8, 9]
         dd($array);
+         
+    }
+
+    public function reusable()
+    {
+        $user_name = get_user_name(1);
+        dd($user_name);
          
     }
 }

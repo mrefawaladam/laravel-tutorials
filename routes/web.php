@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::get('accessors',[TestController::class,'accessor']);
 Route::get('helper',[TestController::class,'helper']);
+Route::get('reusable',[TestController::class,'reusable']);
+
